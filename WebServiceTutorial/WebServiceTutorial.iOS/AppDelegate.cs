@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
+//ビルド用の追加
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 using Foundation;
 using UIKit;
 
@@ -24,6 +29,9 @@ namespace WebServiceTutorial.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            AppCenter.Start("6308c2e5-ea63-4b85-83fb-1f2ea6f7216b",
+                   typeof(Analytics), typeof(Crashes));
 
             return base.FinishedLaunching(app, options);
         }
